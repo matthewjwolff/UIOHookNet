@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibUIOHookNet", "LibUIOHookNet\LibUIOHookNet.csproj", "{A2FB77AC-178D-485F-91D7-63794D6D8B4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibUIOHookNetTest", "LibUIOHookNetTest\LibUIOHookNetTest.csproj", "{CC37B33F-98AC-4413-8CE5-FD45550EBDB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2FB77AC-178D-485F-91D7-63794D6D8B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FB77AC-178D-485F-91D7-63794D6D8B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FB77AC-178D-485F-91D7-63794D6D8B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FB77AC-178D-485F-91D7-63794D6D8B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC37B33F-98AC-4413-8CE5-FD45550EBDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC37B33F-98AC-4413-8CE5-FD45550EBDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC37B33F-98AC-4413-8CE5-FD45550EBDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC37B33F-98AC-4413-8CE5-FD45550EBDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
