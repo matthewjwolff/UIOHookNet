@@ -62,18 +62,19 @@ namespace LibUIOHookNet
 		[FieldOffset(0)]
 		internal EVENT_TYPE event_type;
 
-		[FieldOffset(4)]
+        // This member is 8 bytes wide, so it will have been aligned to an
+        // 8 byte boundary by the compiler. The previous member was only 4 
+        // bytes, so 4 bytes of padding was added beteen it and this member.
+		[FieldOffset(8)]
 		internal ulong time;
         
-        // items are aligned to 4-byte boundaries by the compiler
-		// also these fields are swapped (what the header says is not what is in the library)
 		[FieldOffset(16)]
 		internal ushort mask;
 
-		[FieldOffset(12)]
+		[FieldOffset(18)]
 		internal ushort reserved;
 
-        // so this member is at byte 20
+        // these three members are unioned, so they share the same offset.
 		[FieldOffset(20)]
 		internal keyboard_event_data data_keyboard; 
 		[FieldOffset(20)]

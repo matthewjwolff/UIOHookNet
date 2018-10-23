@@ -34,6 +34,9 @@ namespace LibUIOHookNet
 		public static event EventHandler<MouseEventArgs> OnMouseDrag;
 		public static event EventHandler<MouseWheelEventArgs> OnMouseWheel;
 
+		public static readonly ushort MASK_SHIFT_L = 1 << 0;
+        public static readonly ushort MASK_CTRL_L = 1 << 1;
+
 		// mutex but other threads can release
 		private static readonly SemaphoreSlim initializing = new SemaphoreSlim(1, 1);
 		public static void StartHook()
