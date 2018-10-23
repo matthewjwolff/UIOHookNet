@@ -22,6 +22,16 @@ namespace LibUIOHookNet
 {
 	public static class UIOHook
 	{
+		// There's no portable way to access the varargs list, because that's
+        // based on platform-dependent argument passing. 
+        // We'll at least provide the ability to turn off logging by passing a 
+        // no-op callback
+		private static void Handlelogger_t(uint level, string format, IntPtr args)
+		{
+			// no-op
+		}
+
+
 		public static event EventHandler<KeyEventArgs> OnKeyPress;
 		public static event EventHandler<KeyEventArgs> OnKeyRelease;
 
@@ -39,6 +49,17 @@ namespace LibUIOHookNet
 
 		// mutex but other threads can release
 		private static readonly SemaphoreSlim initializing = new SemaphoreSlim(1, 1);
+        
+		public static void EnableDefaultLogFunc() 
+		{
+			NativeUIOHook.hook_set_logger_proc(null);
+		}
+        
+		public static void DisableDefaultLogFunc() 
+		{
+			NativeUIOHook.hook_set_logger_proc(Handlelogger_t);
+		}
+
 		public static void StartHook()
 		{
 			// take the semaphore. it will be released when the EVENT_TYPE.EVENT_HOOK_ENABLED event is received

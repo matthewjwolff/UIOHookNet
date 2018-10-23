@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Runtime.InteropServices;
 namespace LibUIOHookNet
 {
@@ -29,8 +30,13 @@ namespace LibUIOHookNet
 
 		[DllImport("uiohook")]
 		internal static extern void hook_set_dispatch_proc(dispatcher_t dispatch_proc);
+
+		[DllImport("uiohook")]
+		internal static extern void hook_set_logger_proc(logger_t logger_proc);
         
 		internal delegate void dispatcher_t(ref uiohook_event e);
+
+		internal delegate void logger_t(uint level, string format, IntPtr args);
     }
 
 	#pragma warning disable 649
