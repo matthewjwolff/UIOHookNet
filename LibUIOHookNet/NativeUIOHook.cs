@@ -20,6 +20,11 @@ using System;
 using System.Runtime.InteropServices;
 namespace LibUIOHookNet
 {
+// I want to use C-style naming so P-Invoke works.
+#pragma warning disable IDE1006 // Naming Styles
+// Fields are assigned by the library, never from C#.
+#pragma warning disable 649 // Unassigned Fields
+
 	class NativeUIOHook
 	{
 		[DllImport("uiohook")]
@@ -38,22 +43,21 @@ namespace LibUIOHookNet
 
 		internal delegate void logger_t(uint level, string format, IntPtr args);
     }
-
-	#pragma warning disable 649
-	struct keyboard_event_data {
+    
+	internal struct keyboard_event_data {
 		internal ushort keycode;
 		internal ushort rawcode;
 		internal char keychar;
 	}
 
-	struct mouse_event_data {
+	internal struct mouse_event_data {
 		internal ushort button;
 		internal ushort clicks;
 		internal short x;
 		internal short y;
 	}
 
-	struct mouse_wheel_event_data {
+	internal struct mouse_wheel_event_data {
 		internal ushort clicks;
 		internal short x;
 		internal short y;
@@ -64,7 +68,7 @@ namespace LibUIOHookNet
 
 
 	[StructLayout(LayoutKind.Explicit)]
-	struct uiohook_event {
+	internal struct uiohook_event {
 		[FieldOffset(0)]
 		internal EVENT_TYPE event_type;
 
@@ -88,7 +92,6 @@ namespace LibUIOHookNet
 		[FieldOffset(20)]
 		internal mouse_wheel_event_data data_wheel;
 	}
-	#pragma warning restore 649
 
 	public enum EVENT_TYPE // int
     {
